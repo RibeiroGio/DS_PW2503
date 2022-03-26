@@ -1,0 +1,19 @@
+
+/* licaoPW_tcc: */
+
+CREATE TABLE usuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50)
+);
+
+CREATE TABLE cadastro (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_client_fk INT,
+    save_fase CHAR(3) not null,
+    save_item BIT not null
+);
+ 
+ALTER TABLE cadastro ADD CONSTRAINT FK_cadastro_2
+    FOREIGN KEY (id_client_fk)
+    REFERENCES usuario (id)
+    ON DELETE RESTRICT;
